@@ -17,4 +17,4 @@ def generate_token():
     r = requests.post(login_url, data = data_to_post)
     return r.json();
 
-print(generate_token());
+#print(generate_token());
