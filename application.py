@@ -1,6 +1,7 @@
 from flask import Flask
 #from manage_api import generate_token
 from manage_api import prueba
+import requests;
 app = Flask(__name__)
 
 @app.route("/")
