@@ -3,6 +3,8 @@ try:
 	import requests;
 except:
 	requests = install_and_load('requests')
+	if requests == None:
+		return "ERROR 10001";
 
 PARTNER_SERVICE_APIROOT = "https://api.partnercenter.microsoft.com";
 AUTHORITY = "https://login.windows.net";
