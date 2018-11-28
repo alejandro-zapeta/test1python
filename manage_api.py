@@ -1,4 +1,8 @@
-#import requests;
+from mimain import install_and_load
+try:
+	import requests;
+except:
+	requests = install_and_load('requests')
 
 PARTNER_SERVICE_APIROOT = "https://api.partnercenter.microsoft.com";
 AUTHORITY = "https://login.windows.net";
@@ -9,7 +13,7 @@ CLIENT_ID = "afbda1af-5662-4364-9705-d3b5bf9e0bc9";
 APPLICATION_DOMAIN = "GruposegaGT.onmicrosoft.com";
 
 
-'''
+
 def generate_token():
     login_url = ("%s/%s/oauth2/token"  % (AUTHORITY, APPLICATION_DOMAIN));
     data_to_post = {"resource": RESOURCE_URL, "client_id": CLIENT_ID,
@@ -20,6 +24,6 @@ def generate_token():
     return r.json();
 
 #print(generate_token());
-'''
-def prueba():
-	return "123";
+
+#def prueba():
+#	return "123";
