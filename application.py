@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+
+import pip
+import imp
 from flask import Flask
 #from manage_api import generate_token
 from manage_api import prueba
