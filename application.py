@@ -4,9 +4,9 @@ from manage_api import prueba
 app = Flask(__name__)
 
 def install_and_load(package):
-	import pip
 	import imp
-	pip.main(['install', package])
+	import subprocess
+	subprocess.call(['pip', 'install', package])
 	f, fname, desc = imp.find_module(package)
 	return imp.load(package, f, fname, desc)
 	
