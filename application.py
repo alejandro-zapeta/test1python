@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import jsonify
 from manage_api import generate_token
 app = Flask(__name__)
 
@@ -8,4 +9,7 @@ def hello():
 	
 @app.route("/rs/generate-token")
 def rs_generate_token():
-	return generate_token()
+    try:
+        return jsonify(generate_token())
+    except Exception as e:
+        return str(e)
