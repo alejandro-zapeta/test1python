@@ -2,7 +2,7 @@ from mimain import install_and_load
 try:
     import tinydb;
 except:
-    requests = install_and_load('tinydb')
+    tinydb = install_and_load('tinydb')
 
 db = tinydb.TinyDB("sega.json")
 
