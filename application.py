@@ -40,7 +40,7 @@ def rs_listar():
 def rs_logearse():
     try:
         contenido = request.json
-        return logearse(contenido["usuario"], contenido["pwd"])
+        return jsonify(logearse(contenido["usuario"], contenido["pwd"]))
     except Exception as e:
         return str(e)
 
@@ -48,6 +48,6 @@ def rs_logearse():
 @app.route("/rs/usuario/<usuario1>/", methods=['GET'])
 def rs_obtener_usuario(usuario1):
     try:
-        return obtener_usuario(usuario1)
+        return jsonify(obtener_usuario(usuario1))
     except Exception as e:
         return str(e)
