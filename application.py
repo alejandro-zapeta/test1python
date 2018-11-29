@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from manage_api import generate_token
-import miapp
+from miapp import insertar_usuario, listar, logearse, obtener_usuario
 app = Flask(__name__)
 
 @app.route("/")
