@@ -4,7 +4,7 @@ try:
 except:
     tinydb = install_and_load('tinydb')
 
-db = tinydb.TinyDB("sega.json")
+db = tinydb.TinyDB("segatest.json")
 
 def insertar_usuario(usuario):
     try:
@@ -17,8 +17,8 @@ def listar():
     return db.all()
 
 def logearse(usuario1, pwd1):
-    login = Query()
+    login = tinydb.Query()
     return db.search((login["usuario"] == usuario1) & (login["pwd"] == pwd1))
 
 def obtener_usuario(usuario1):
-    return db.search(Query()["usuario"] == usuario1)
+    return db.search(tinydb.Query()["usuario"] == usuario1)

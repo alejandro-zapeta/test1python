@@ -1,7 +1,15 @@
 from flask import Flask, jsonify, request
 from manage_api import generate_token
 from miapp import insertar_usuario, listar, logearse, obtener_usuario
+from mimain import install_and_load
+
+try:
+    import flask_cors;
+except:
+    flask_cors = install_and_load('flask_cors')
+
 app = Flask(__name__)
+flask_cors.CORS(app)
 
 @app.route("/")
 def hello():
