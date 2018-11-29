@@ -16,7 +16,10 @@ def rs_generate_token():
 
 @app.route("/rs/usuario/insertar-usuario", methods=['POST'])
 def rs_insertar_usuario():
-    return insertar_usuario(request.json)
+    try:
+        return insertar_usuario(request.json)
+    except Exception as e:
+        return str(e)
 
 @app.route("/rs/usuario/", methods=['GET'])
 def rs_listar():
