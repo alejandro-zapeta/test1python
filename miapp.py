@@ -7,8 +7,11 @@ except:
 db = tinydb.TinyDB("sega.json")
 
 def insertar_usuario(usuario):
-    db.insert(usuario)
-    return "OK"
+    try:
+        db.insert(usuario)
+        return "OK"
+    except Exception as e:
+        return str(e)
 
 def listar():
     return db.all()
