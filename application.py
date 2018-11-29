@@ -23,13 +23,23 @@ def rs_insertar_usuario():
 
 @app.route("/rs/usuario/", methods=['GET'])
 def rs_listar():
-    return listar()
+    try:
+        return jsonify(listar())
+    except Exception as e:
+        return str(e)
 
 @app.route("/rs/usuario/logearse", methods=['POST'])
 def rs_logearse():
-    contenido = request.json
-    return logearse(contenido["usuario"], contenido["pwd"])
+    try:
+        contenido = request.json
+        return logearse(contenido["usuario"], contenido["pwd"])
+    except Exception as e:
+        return str(e)
+
 
 @app.route("/rs/usuario/<usuario1>/", methods=['GET'])
 def rs_obtener_usuario(usuario1):
-    return obtener_usuario(usuario1)
+    try:
+        return obtener_usuario(usuario1)
+    except Exception as e:
+        return str(e)
