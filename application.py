@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from manage_api import generate_token
 from miapp import insertar_usuario, listar, logearse, obtener_usuario
 from mimain import install_and_load
+import os
 
 try:
     import flask_cors;
@@ -11,9 +12,15 @@ except:
 app = Flask(__name__)
 flask_cors.CORS(app)
 
-@app.route("/")
+root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dist")
+
+@app.route('/<path:path>', methods=['GET'])
+def static_proxy(path):
+    return send_from_directory(root, path)
+
+@app.route("/", methods=['GET'])
 def hello():
-    return "Hello XXXX!"
+    return send_from_directory(root, 'index.html')
 	
 @app.route("/rs/generate-token", methods=['GET'])
 def rs_generate_token():
