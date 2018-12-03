@@ -39,7 +39,7 @@ def rs_insertar_usuario():
 @app.route("/rs/usuario/<llave_usuario>/actualizar-usuario", methods=['POST'])
 def rs_actualizar_usuario(llave_usuario):
     try:
-        return actualizar(request.json)
+        return actualizar(request.json, llave_usuario)
     except Exception as e:
         return str(e)
 
