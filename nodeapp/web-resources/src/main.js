@@ -30,8 +30,8 @@ function arrayFromData(labels, array) {
         var Medida = labels[i];
         var total = 0;
         for (var i1 = array.length - 1; i1 >= 0; i1--) {
-            if (array[i1]["unit"] === Medida) {
-                total = array[i1]["rates"][0] + total;
+            if (array[i1]["resource"]["name"] === Medida) {
+                total = array[i1]["Costo"] + total;
             }
         }
         resultado.push(total);
@@ -61,7 +61,9 @@ Vue.component('line-chart', {
                         "#808000",
                         "#008080",
                         "#AFEEEE", "#4682B4", "#FFEBCD", "#708090",
-                        "#FF6347", "#DA70D6", "#9370DB"
+                        "#FF6347", "#DA70D6", "#9370DB", "#ff4dc4", "#800055", "#ff8000", "#ffe6cc", "#8585e0", "#2e2eb8","#66cc00",
+						"#ffd24d", "#806000", "#ff4dff", "#b300b3", "#80ffdf", "#009973","#66d9ff", "#007399", "#66cc99", "#26734d",
+						"#cc6600", "#663300"
                     ],
                     data: miarreglo
                 }]

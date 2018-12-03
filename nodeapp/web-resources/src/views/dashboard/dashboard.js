@@ -124,18 +124,19 @@ var mismetodos = {
                     var meters = response.data.items;
                     var lent = meters.length;
                     var costUnit = (totalx / meters.length );
-                    /*
-                    for (var i = 1001 - 1; i >= 0; i--) {
+                    
+                    for (var i = lent - 1; i >= 0; i--) {
+					meters[i]["Costo"] = costUnit;
                         //var metro1 = meters[i];
-                        copia.push(meters[i]);
-                    }*/
-                    this.desserts = meters;
-                    COPIA_DATA = this.desserts.slice(0);
+                       // copia.push(meters[i]);
+                    }
+                    vue.desserts = meters;
+                    COPIA_DATA = vue.desserts.slice(0);
 
-                    this.lblMedidas = labelsFromData2(this.desserts, "resource", "name").sort();
-                    this.medidas = this.lblMedidas.slice(0);
+                    vue.lblMedidas = labelsFromData2(vue.desserts, "resource", "name").sort();
+                    vue.medidas = vue.lblMedidas.slice(0);
                     // this.tags = labelsFromData(this.desserts, "instanceData", "tags").sort();
-                    this.filtrarData();
+                    vue.filtrarData();
                     //  console.log("response:::");
                     //  console.log(response.data);
                 })
