@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request, send_from_directory
 from manage_api import generate_token
-from miapp import insertar_usuario, listar, logearse, obtener_usuario
+from miapp import insertar_usuario, listar, logearse, obtener_usuario, actualizar
 from mimain import install_and_load
 import os
 
@@ -33,6 +33,13 @@ def rs_generate_token():
 def rs_insertar_usuario():
     try:
         return insertar_usuario(request.json)
+    except Exception as e:
+        return str(e)
+
+@app.route("/rs/usuario/<llave_usuario>/actualizar-usuario", methods=['POST'])
+def rs_actualizar_usuario(llave_usuario):
+    try:
+        return actualizar(request.json)
     except Exception as e:
         return str(e)
 
